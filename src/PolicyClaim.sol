@@ -16,7 +16,7 @@ contract PolicyClaim {
         uint256 startDate;
         uint256 endDate;
         bool isActive;
-        string policyHash; // Hash of policy document stored off-chain
+        string policyHash; 
     }
 
     // Struct to store claim information

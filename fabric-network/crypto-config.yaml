@@ -1,0 +1,22 @@
+OrdererOrgs:
+  - Name: Orderer
+    Domain: healthinsurechain.com
+    Specs:
+      - Hostname: orderer
+
+PeerOrgs:
+  - Name: Hospital
+    Domain: hospital.healthinsurechain.com
+    EnableNodeOUs: true
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Insurance
+    Domain: insurance.healthinsurechain.com
+    EnableNodeOUs: true
+    Template:
+      Count: 1
+    Users:
+      Count: 1

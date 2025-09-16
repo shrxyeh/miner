@@ -1,0 +1,90 @@
+{
+    "name": "healthinsurechain-network",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Hospital",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "channels": {
+        "healthinsurechain-channel": {
+            "orderers": [
+                "orderer.healthinsurechain.com"
+            ],
+            "peers": {
+                "peer0.hospital.healthinsurechain.com": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "ledgerQuery": true,
+                    "eventSource": true
+                },
+                "peer0.insurance.healthinsurechain.com": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "ledgerQuery": true,
+                    "eventSource": true
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Hospital": {
+            "mspid": "HospitalMSP",
+            "peers": [
+                "peer0.hospital.healthinsurechain.com"
+            ],
+            "certificateAuthorities": [
+                "ca.hospital.healthinsurechain.com"
+            ]
+        },
+        "Insurance": {
+            "mspid": "InsuranceMSP",
+            "peers": [
+                "peer0.insurance.healthinsurechain.com"
+            ],
+            "certificateAuthorities": [
+                "ca.insurance.healthinsurechain.com"
+            ]
+        }
+    },
+    "orderers": {
+        "orderer.healthinsurechain.com": {
+            "url": "grpc://localhost:7050"
+        }
+    },
+    "peers": {
+        "peer0.hospital.healthinsurechain.com": {
+            "url": "grpc://localhost:7051"
+        },
+        "peer0.insurance.healthinsurechain.com": {
+            "url": "grpc://localhost:8051"
+        }
+    },
+    "certificateAuthorities": {
+        "ca.hospital.healthinsurechain.com": {
+            "url": "http://localhost:7054",
+            "caName": "ca-hospital",
+            "tlsCACerts": {
+                "pem": ["-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----"]
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        },
+        "ca.insurance.healthinsurechain.com": {
+            "url": "http://localhost:8054",
+            "caName": "ca-insurance",
+            "tlsCACerts": {
+                "pem": ["-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----"]
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}

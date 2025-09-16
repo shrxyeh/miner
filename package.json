@@ -18,7 +18,13 @@
     "forge:deploy": "forge script script/DeployPolicyClaim.s.sol --rpc-url http://localhost:8545 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --broadcast",
     "forge:workflow": "forge script script/PolicyWorkflow.s.sol --rpc-url http://localhost:8545 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --broadcast",
     "miner": "cd rust-miner && cargo run",
-    "miner:dev": "cd rust-miner && cargo run -- --rpc-url http://localhost:8545 --poll-interval 3"
+    "miner:dev": "cd rust-miner && cargo run -- --rpc-url http://localhost:8545 --poll-interval 3",
+    "fabric:setup": "cd fabric-network && chmod +x setup-fabric.sh && ./setup-fabric.sh",
+    "fabric:start": "cd fabric-network && docker-compose up -d",
+    "fabric:stop": "cd fabric-network && docker-compose down",
+    "fabric:clean": "cd fabric-network && docker-compose down -v && rm -rf crypto-config channel-artifacts",
+    "fabric:api": "cd fabric-api && npm install && npm start",
+    "fabric:api:dev": "cd fabric-api && npm install && npm run dev"
   },
   "keywords": [],
   "author": "",
